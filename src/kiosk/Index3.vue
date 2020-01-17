@@ -65,11 +65,11 @@
         components: {Plot, Notif},
 
         mounted: function () {
-            // window.setInterval(() => {
-            //     this.get_data(),
-            //         this.remove_1hour_reserved_no_show_up()
-            // },5000);
-            this.get_data()
+            window.setInterval(() => {
+                this.get_data(),
+                    this.remove_1hour_reserved_no_show_up()
+            },1000);
+            // this.get_data()
         },
 
         methods: {
