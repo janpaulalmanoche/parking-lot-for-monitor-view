@@ -91,12 +91,21 @@
                 axios.get(api+'rfid/'+this.rfid)
                     .then((response)=>{
                         console.log(response.data)
-                        this.user_detail = response.data
+                        this.user_detail = response.data[0]
+                        this.showNotif('center',response.data[1])
                         // console.log(response.data.booking[0].user)
                         // this.user_detail = response.data
                     })
                 this.rfid = ''
                 // this.rfid = ''
+            },
+            showNotif (position ,$message) {
+                this.$q.notify({
+                    position:position,
+                    message: $message,
+                    color: 'green'
+                })
+
             },
             get_data(){
                 axios.get(api+'latest')
