@@ -94,7 +94,7 @@
       }
     },
     computed:mapState({
-      // navsFromVuex: state => state.routerModule.navs
+      count: state => state.plot.count
     }),
     methods: {
       openURL
