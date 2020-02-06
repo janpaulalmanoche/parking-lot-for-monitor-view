@@ -37,7 +37,7 @@
                             </span>
                             <br/>
                             <span >
-                                    Vehicle brand : {{user_detail.brand.brand}}
+                                    Vehicle brand : {{user_detail.brand_id}}
                             </span>
                             </br>
                             <span >
@@ -102,8 +102,17 @@
             showNotif (position ,$message) {
                 this.$q.notify({
                     position:position,
-                    message: $message,
-                    color: 'green'
+                    // message: $message,
+                    timeout:8000,
+                    classes:'test',
+                    color: 'green',
+
+                    message:  $message,
+                    multiLine: true,
+                    avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
+                    actions: [
+                        { label: '', color: 'yellow', handler: () => { /* ... */ } }
+                    ]
                 })
 
             },
@@ -121,10 +130,10 @@
             return {
                 user_detail:{
                     id: 1,
-                    owner_id: 1,
+                    owner_id: '',
                     plate_no: "",
-                    brand_id: 1,
-                    vehicle_type_id: 1,
+                    brand_id: '',
+                    vehicle_type_id: '',
                     encoded_by: 3,
                     color: "",
                     rfid: "",
@@ -201,6 +210,17 @@
     .span{
         font-size: 25px;
         margin-top: -200px !important;
+    }
+    #my-notif-class{
+        background-color:blue;
+        height:500px;
+    }
+    .test{
+        max-height:500px;
+    }
+    #test{
+        max-height:500px;
+        color:red;
     }
 
 </style>
