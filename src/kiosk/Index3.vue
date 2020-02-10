@@ -52,7 +52,9 @@
                         </q-item-label>
                         <!--<q-item-label lines="1" class="q-mt-xs text-body2 text-weight-bold text-primary text-uppercase">-->
                         <!--<span class="cursor-pointer"> f  </span>-->
-                        <!--</q-item-label>-->
+                                            <!--</q-item-label>-->
+                            Available Plot  : {{this.count}}/6 <br/>
+                            Vehicle Inside  : {{this.count2}}
                     </q-item-section>
 
                 </q-item>
@@ -88,6 +90,7 @@
         methods: {
             haha(){
                 // alert('hahaha'),
+
                 axios.get(api+'rfid/'+this.rfid)
                     .then((response)=>{
                         console.log(response.data)
@@ -95,6 +98,13 @@
                         this.showNotif('center',response.data[1])
                         // console.log(response.data.booking[0].user)
                         // this.user_detail = response.data
+
+                        axios.get(api+ 'plot').then( (r)=> {
+                            this.count = r.data[0]
+                            this.count2 = r.data[1]
+                        })
+
+
                     })
                 this.rfid = ''
                 // this.rfid = ''
@@ -166,7 +176,8 @@
                     }
                 },
 
-
+                count:'5',
+                count2:'0',
 
                 rfid:''
 
