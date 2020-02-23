@@ -1,5 +1,5 @@
 {
-  "name": "parking-lot",
+  "name": "Parking-lot",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
   "productName": "Parking Lot",
@@ -7,8 +7,7 @@
   "author": "jan paul almanoche <janpaulalmanoche@gmail.com>",
   "private": true,
   "scripts": {
-    "postinstall": "npm install express",
-    "deploy": "git subtree push — prefix dist heroku master"
+    "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@opentok/client": "^2.16.3",
