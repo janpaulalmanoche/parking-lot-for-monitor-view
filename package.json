@@ -1,5 +1,17 @@
 {
+  "name": "parkinglot",
+  "version": "0.0.1",
+  "description": "A Quasar Framework app",
+  "productName": "Parking Lot",
+  "cordovaId": "org.cordova.quasar.app",
+  "author": "jan paul almanoche <janpaulalmanoche@gmail.com>",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0",
 
+    "start": "node server.js",
+    "heroku-postbuild": "yarn && yarn build"
+  },
   "dependencies": {
     "@opentok/client": "^2.16.3",
     "@quasar/extras": "^1.0.0",
@@ -26,18 +38,5 @@
   },
   "browserslist": [
     "last 1 version, not dead, ie >= 11"
-  ],
-  "name": "parkinglot",
-  "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Parking Lot",
-  "cordovaId": "org.cordova.quasar.app",
-  "author": "jan paul almanoche <janpaulalmanoche@gmail.com>",
-  "private": true,
-  "scripts": {
-    "test": "echo \"No test specified\" && exit 0",
-    "build": "quasar build",
-    "start": "node server.js",
-    "heroku-postbuild": "yarn && yarn build"
-  }
+  ]
 }
