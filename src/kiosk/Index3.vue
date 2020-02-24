@@ -3,8 +3,8 @@
     <q-page>
 
 
-        <q-card class="my-card" style="margin:20px 20%;height:350px">
-            <q-card-section class="bg-purple text-white" style="height:100px">
+        <q-card class="my-card" style="margin:20px 20%;height:500px">
+            <q-card-section class="bg-green text-white" style="height:100px">
 
                 <div class="text-h6"> <q-input  @change="this.haha" v-model="rfid" placeholder="SCAN RFID" autofocus/></div>
 
@@ -13,16 +13,17 @@
             </q-card-section>
 
             <q-card-actions align="around">
-                <q-item style="margin-top:20px;font-size:20px">
+                <q-item style="margin-top:20px;font-size:35px">
                     <!--<q-item-section avatar top>-->
                     <!--<q-icon name="account_tree" color="black" size="34px" />-->
                     <!--</q-item-section>-->
+                    
 
 
 
 
                     <q-item-section top>
-                        <q-item-label lines="1">
+                        <q-item-label lines="1" style="font-weight:bold">
                             <span >
                                     Client :
                                 {{user_detail.user.first_name}} {{user_detail.user.middle_name}} {{user_detail.user.last_name}}
@@ -53,8 +54,11 @@
                         <!--<q-item-label lines="1" class="q-mt-xs text-body2 text-weight-bold text-primary text-uppercase">-->
                         <!--<span class="cursor-pointer"> f  </span>-->
                                             <!--</q-item-label>-->
-                            Available Plot  : {{this.count}}/6 <br/>
+                                            <span style="color:red;font-weight:bold">
+                            Available Spot  : {{this.count}}/6 <br/>
                             Vehicle Inside  : {{this.count2}}
+
+                            </span>
                     </q-item-section>
 
                 </q-item>
@@ -99,12 +103,14 @@
                         // console.log(response.data.booking[0].user)
                         // this.user_detail = response.data
 
-                        axios.get(api+ 'plot').then( (r)=> {
+                        axios.get(api+ 'plot_count').then( (r)=> {
                             this.count = r.data[0]
                             this.count2 = r.data[1]
                         })
 
 
+                    }).catch( (e)=>{
+                       this.showNotif('center','Not Registered')
                     })
                 this.rfid = ''
                 // this.rfid = ''
@@ -114,12 +120,12 @@
                     position:position,
                     // message: $message,
                     timeout:8000,
-                    classes:'test',
+                    classes:'my-notif-class',
                     color: 'green',
 
                     message:  $message,
                     multiLine: true,
-                    avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
+                    avatar: require('./htc.png'),
                     actions: [
                         { label: '', color: 'yellow', handler: () => { /* ... */ } }
                     ]
@@ -231,7 +237,10 @@
     }
     #test{
         max-height:500px;
-        color:red;
+        color:violet;
+    }
+    #my-notif-class{
+    font-size:50px !important;
     }
 
 </style>

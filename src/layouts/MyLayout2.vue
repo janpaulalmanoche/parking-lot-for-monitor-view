@@ -16,7 +16,7 @@
         <!--</q-btn>-->
 
         <q-toolbar-title class="absolute-center">
-        Parking Lot
+        Electronic Parking Lot
         </q-toolbar-title>
 
         <!--<div>Quasar v{{ $q.version }}</div>-->
