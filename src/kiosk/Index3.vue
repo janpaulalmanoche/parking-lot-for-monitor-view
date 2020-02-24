@@ -78,7 +78,8 @@
     // import axios from 'axios'
     import axios from 'axios';
 
-    let api = 'http://127.0.0.1:8000' + '/api/';
+    let api = '//damp-gorge-98609.herokuapp.com' + '/api/';
+    // let api = 'http://127.0.0.1:8000' + '/api/';
     // let api = 'https://2525afa1.ngrok.io'+'/api/';
     export default {
         components: {Plot, Notif},
